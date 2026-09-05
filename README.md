@@ -20,7 +20,7 @@ Specifically, it examines whether:
 ## **Methodology**
 
 The forecasting framework consists of the following stages:
-
+---
 ```text
                ┌──────────────────────────────┐
                │     Nasdaq-100 OHLC Data     │
@@ -57,7 +57,6 @@ The forecasting framework consists of the following stages:
       │     Model Evaluation      │
       │  QLIKE • MAE • RMSE • DM  │
       └───────────────────────────┘
-```text
 
 Benchmark models include the Historical Average, Simple Moving Average (SMA), and Simple Exponential Smoothing (SES). GARCH-family models include GARCH, EGARCH, and GJR-GARCH, estimated under Normal, Student's t, and skewed Student's t innovation distributions.
 
@@ -73,7 +72,7 @@ The empirical results show that:
 * TThe regime-aware ensemble did not outperform the hybrid LSTM, indicating that the GMM-based combination did not provide additional forecasting gains.
 
 ## **Repository Structure**
-
+---
 ```text
 ├── data/        # Data and data preparation 
 ├── notebooks/   # Analysis and forecasting workflows 
