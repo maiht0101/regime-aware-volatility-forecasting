@@ -21,22 +21,43 @@ Specifically, it examines whether:
 
 The forecasting framework consists of the following stages:
 
-```mermaid
-flowchart TD
-    OHLC[Nasdaq-100 OHLC Data] --> YZ[Yang-Zhang Realized Volatility]
-
-    YZ --> Benchmarks[Benchmarks]
-    YZ --> GARCH[GARCH-family]
-    YZ --> LSTM[Standalone LSTM]
-
-    GARCH --> Hybrid[Hybrid LSTM<br/><i>GARCH forecasts as additional inputs</i>]
-    LSTM --> Hybrid
-
-    GMM[GMM Regime Detection] --> Ensemble
-    Hybrid --> Ensemble[Regime-Aware Ensemble<br/><i>Best GARCH + LSTM</i>]
-
-    Benchmarks --> Eval[Model Evaluation<br/><b>QLIKE • MAE • RMSE • DM</b>]
-    Ensemble --> Eval
+```text
+               ┌──────────────────────────────┐
+               │     Nasdaq-100 OHLC Data     │
+               └──────────────┬───────────────┘
+                              │
+                              ▼
+               ┌──────────────────────────────┐
+               │  Yang-Zhang Realized Vol.    │
+               └──────────────┬───────────────┘
+                              │
+          ┌───────────────────┼───────────────────┐
+          ▼                   ▼                   ▼
+    ┌───────────┐     ┌───────────────┐   ┌───────────────┐
+    │Benchmarks │     │ GARCH-family  │   │Standalone LSTM│
+    └─────┬─────┘     └───────┬───────┘   └───────┬───────┘
+          │                   │                   │
+          │                   └─────────┬─────────┘
+          │                             ▼
+          │                     ┌───────────────┐
+          │                     │  Hybrid LSTM  │
+          │                     └───────┬───────┘
+          │                             │
+          │     ┌───────────────────────┤
+          │     │ GMM Regime Detection  │
+          │     └───────────┬───────────┘
+          │                 ▼
+          │     ┌───────────────────────┐
+          │     │ Regime-Aware Ensemble │
+          │     └───────────┬───────────┘
+          │                 │
+          └─────────┬───────┘
+                    ▼
+      ┌───────────────────────────┐
+      │     Model Evaluation      │
+      │  QLIKE • MAE • RMSE • DM  │
+      └───────────────────────────┘
+```
 
 Benchmark models include the Historical Average, Simple Moving Average (SMA), and Simple Exponential Smoothing (SES). GARCH-family models include GARCH, EGARCH, and GJR-GARCH, estimated under Normal, Student's t, and skewed Student's t innovation distributions.
 
@@ -62,8 +83,7 @@ The empirical results show that:
 ├── thesis/      # Final thesis 
 ├── requirements.txt 
 └── README.md
-```text
-
+```
 ## **Thesis**
 
 **A Regime-Aware Hybrid GARCH-LSTM Ensemble Framework for Forecasting Nasdaq-100 Realized Volatility**
