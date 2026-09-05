@@ -57,6 +57,7 @@ The forecasting framework consists of the following stages:
       │     Model Evaluation      │
       │  QLIKE • MAE • RMSE • DM  │
       └───────────────────────────┘
+```text
 
 Benchmark models include the Historical Average, Simple Moving Average (SMA), and Simple Exponential Smoothing (SES). GARCH-family models include GARCH, EGARCH, and GJR-GARCH, estimated under Normal, Student's t, and skewed Student's t innovation distributions.
 
@@ -82,6 +83,7 @@ The empirical results show that:
 ├── thesis/      # Final thesis 
 ├── requirements.txt 
 └── README.md
+```text
 
 ## **Thesis**
 
