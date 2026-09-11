@@ -70,16 +70,14 @@ The empirical results show that:
 * SES achieved the best overall forecasting performance among the models considered.
 * Standalone LSTM outperformed the GARCH-family models in out-of-sample forecasting.
 * The hybrid LSTM improved upon the standalone LSTM by incorporating GARCH forecasts as additional inputs.
-* TThe regime-aware ensemble did not outperform the hybrid LSTM, indicating that the GMM-based combination did not provide additional forecasting gains.
+* The regime-aware ensemble did not outperform the hybrid LSTM, indicating that the GMM-based combination did not provide additional forecasting gains.
 
 ## **Repository Structure**
 ---
 ```text
 ├── data/        # Data and data preparation 
 ├── notebooks/   # Analysis and forecasting workflows 
-├── src/         # Reusable Python modules 
 ├── results/     # Model results and statistical tests 
-├── figures/     # Generated visualizations 
 ├── thesis/      # Final thesis 
 ├── requirements.txt 
 └── README.md
