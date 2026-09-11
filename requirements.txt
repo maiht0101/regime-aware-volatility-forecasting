@@ -1,0 +1,12 @@
+numpy
+pandas
+yfinance
+matplotlib
+seaborn
+statsmodels
+arch
+scipy
+scikit-learn
+joblib
+optuna
+tensorflow
